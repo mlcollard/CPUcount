@@ -49,4 +49,4 @@ jobs:
         shell: bash
         working-directory: build
         run: |
-          ./CPUCount.exe
+          ./Release/CPUCount.exe
