@@ -37,8 +37,16 @@ jobs:
           export UseMultiToolTask=true
           cmake --build . --config Release
 
-      - name: Run
+      - name: Run UNIX
+        if: ${{ matrix.os != 'windows-latest' }}
         shell: bash
         working-directory: build
         run: |
           cmake --build . --target run
+
+      - name: Run Windows
+        if: ${{ matrix.os == 'windows-latest' }}
+        shell: bash
+        working-directory: build
+        run: |
+          ./CPUCount.exe
